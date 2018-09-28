@@ -9,7 +9,10 @@
 
 package easygrade;
 
+import easygrade.gui.Frame;
 import easygrade.util.ConsoleTime;
+
+
 
 public class Main {
 
@@ -18,6 +21,8 @@ public class Main {
     public static void main(String args[]) throws InterruptedException {
         start_time = System.currentTimeMillis();
         ConsoleTime.printLog("Starting Program.");
+
+        new Frame();
         
     }
 
