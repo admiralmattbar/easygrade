@@ -10,11 +10,14 @@
 package easygrade;
 
 import easygrade.gui.Frame;
+import easygrade.gui.FrameAddStudent;
+import easygrade.gui.FrameClass;
 import easygrade.util.ConsoleTime;
 
+import javax.swing.*;
 
 
-public class Main {
+public class EasyGrade {
 
     public static long start_time;
 
@@ -22,7 +25,14 @@ public class Main {
         start_time = System.currentTimeMillis();
         ConsoleTime.printLog("Starting Program.");
 
-        new Frame();
+        //new Frame();
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new FrameClass("World History");
+                //new FrameAddStudent();
+            }
+        });
+
         
     }
 

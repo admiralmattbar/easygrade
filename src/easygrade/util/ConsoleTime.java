@@ -1,11 +1,9 @@
 package easygrade.util;
 
-import easygrade.Main;
+import easygrade.EasyGrade;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class ConsoleTime {
 
@@ -38,7 +36,7 @@ public class ConsoleTime {
     private static String getTime()
     {
         long end = System.currentTimeMillis();
-        int timelapsed = (int)(end - Main.start_time);
+        int timelapsed = (int)(end - EasyGrade.start_time);
         int millis = timelapsed % 1000;
         int seconds = (timelapsed / 1000) % 60;
         int minutes = (timelapsed / 1000) / 60;
