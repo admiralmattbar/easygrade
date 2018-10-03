@@ -1,5 +1,6 @@
 package easygrade.gui;
 
+import easygrade.util.ConsoleTime;
 import easygrade.util.PlacementHelper;
 
 import javax.swing.*;
@@ -29,7 +30,7 @@ public class FrameClass extends JFrame {
 
         //Buttons
         JButton addStudentButton = new JButton("Add Student");
-        PlacementHelper.positionComponent(addStudentButton, 100, 100, 100, 20);
+        PlacementHelper.positionComponent(addStudentButton, 100, 100, 150, 20);
 
         //Listeners
         addStudentButton.addActionListener(new ActionListener() {
@@ -46,16 +47,23 @@ public class FrameClass extends JFrame {
 
         this.add(classPanel);
         this.setVisible(true);
+
+        addStudent("Billy");
     }
 
     public static void addStudent(String name)
     {
         numStudents++;
+        ConsoleTime.printLog("Incremebted numStudents by 1.");
         JLabel newStudent = new JLabel(name);
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension dim = tk.getScreenSize();
-        newStudent.setBounds(dim.width/100, dim.height/100 + 50 + numStudents*25, 150, 20);
+        int yPos = ((dim.height/100) + (numStudents*25) + 50);
+        newStudent.setBounds(dim.width/100, yPos, 150, 20);
+
+        ConsoleTime.printLog("Placing student at x: " + dim.width/100 + " y: " + yPos + ".");
         classPanel.add(newStudent);
+        ConsoleTime.printLog("Added " + name + " Student Count: " + numStudents + ".");
     }
 
 }
